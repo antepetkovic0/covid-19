@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+}
+.root {
+  display: flex;
+  height: 600px;
+  flex-direction: row;
+}
+.top {
+  height: 100%;
+}
+#one {
+  width: 20%;
+}
+#one > * {
+  margin: 15px;
+  padding: 0px 15px;
+  border: 2px dotted red;
+  border-radius: 20px;
+  padding: 10;
+  width: 250px;
+}
+#case_rec {
+  border: 2px dotted green;
+}
+#two {
+  width: 80%;
+}
+p {
+  color: red;
+  font-size: 120%;
+  font-weight: bold;
+}
+#global_recovered {
+  color: green;
+}
+h4,
+h5 {
+  font-family: cursive;
+}
+h4 {
+  border-bottom: 2px solid black;
+}
+.footer {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.mapOcean {
+  fill: rgb(188, 216, 248);
+}
+path {
+  stroke: black;
+  stroke-width: 0.5px;
+  cursor: pointer;
+}

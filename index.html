@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Covid-19 Map</title>
+  </head>
+  <body>
+    <h2>COVID-19 REALTIME GLOBAL CASES</h2>
+    <div class="root">
+      <div id="one" class="top left">
+        <div class="case">
+          <h4>CONFIRMED</h4>
+          <p id="global_confirmed"></p>
+          <h5>Last update:<span id="confirmed_update"></span></h5>
+        </div>
+        <div class="case">
+          <h4>DEATHS</h4>
+          <p id="global_deaths"></p>
+          <h5>Last update:<span id="deaths_update"></span></h5>
+        </div>
+        <div class="case" id="case_rec">
+          <h4>RECOVERED</h4>
+          <p id="global_recovered"></p>
+          <h5>Last update:<span id="recovered_update"></span></h5>
+        </div>
+      </div>
+      <div id="two" class="top right">
+        <div style="display:inline">
+          <text>Choose case:</text>
+          <label class="radio">
+            <input
+              type="radio"
+              name="case"
+              value="confirmed"
+              id="rb_c"
+              checked
+            />
+            Confirmed
+          </label>
+          <label class="radio">
+            <input type="radio" name="case" value="deaths" id="rb_d" />
+            Deaths
+          </label>
+          <label class="radio">
+            <input type="radio" name="case" value="recovered" id="rb_r" />
+            Recovered
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <a href="globe.html" title="Check specific country on globe"
+        ><img src="./pictures/globe.png"
+      /></a>
+      <a href="chart.html" title="See curves on chart"
+        ><img src="./pictures/chart.png"
+      /></a>
+    </div>
+
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://unpkg.com/topojson-client@3"></script>
+    <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>

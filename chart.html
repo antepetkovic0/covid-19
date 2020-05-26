@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="forChart.css" />
+    <title>Covid-19 Chart</title>
+  </head>
+  <body>
+    <h2>COVID-19 REALTIME CHART</h2>
+    <div class="root">
+      <div>
+        <text>Choose case:</text>
+        <label class="radio">
+          <input type="radio" name="case" value="confirmed" id="rb_c" />
+          Confirmed
+        </label>
+        <label class="radio">
+          <input type="radio" name="case" value="deaths" id="rb_d" />
+          Deaths
+        </label>
+        <label class="radio">
+          <input type="radio" name="case" value="recovered" id="rb_r" />
+          Recovered
+        </label>
+      </div>
+      <div id="first">
+        <label for="countries">Choose country:</label>
+        <select name="countries" class="cx" id="first_select"></select>
+      </div>
+      <button id="add">Add country</button>
+      <button id="show">Show map</button>
+      <div id="second">
+        <div id="infos" style="visibility:hidden">
+          <p style="font-family: cursive;">Info date - cases</p>
+          <p id="info"></p>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <a href="index.html" title="Back on the home page"
+        ><img src="./pictures/home.png"
+      /></a>
+      <a href="globe.html" title="Check specific country on globe"
+        ><img src="./pictures/globe.png"
+      /></a>
+    </div>
+
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://unpkg.com/topojson-client@3"></script>
+    <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+    <script src="forChart.js"></script>
+  </body>
+</html>

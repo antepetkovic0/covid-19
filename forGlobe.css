@@ -1,0 +1,59 @@
+* {
+  box-sizing: border-box;
+}
+.root {
+  display: flex;
+  height: 600px;
+  flex-direction: row;
+}
+.top {
+  height: 100%;
+}
+#one {
+  width: 40%;
+  margin-top: 50px;
+}
+#two {
+  width: 60%;
+}
+#one > * {
+  margin: 15px;
+  padding: 0px 15px;
+  border: 2px dotted red;
+  border-radius: 20px;
+  padding: 10;
+  width: 200px;
+}
+#country_name {
+  text-align: center;
+  border: 2px solid black;
+}
+#case_rec {
+  border: 2px dotted green;
+}
+p {
+  color: red;
+  font-size: 120%;
+  font-weight: bold;
+}
+h3,
+h4 {
+  font-family: cursive;
+}
+h4 {
+  border-bottom: 2px solid black;
+}
+.footer {
+  display: flex;
+  flex-direction: row-reverse;
+}
+path {
+  fill: grey;
+  stroke: black;
+  stroke-width: 1px;
+  cursor: pointer;
+}
+
+path:hover {
+  fill: orange;
+}

@@ -1,0 +1,34 @@
+* {
+  box-sizing: border-box;
+}
+#first > select {
+  display: block;
+  margin: 10px;
+}
+#second {
+  display: flex;
+  height: 500px;
+  margin-top: 20px;
+}
+#infos {
+  border: 2px dotted dodgerblue;
+  border-radius: 15px;
+  padding: 0px 10px;
+  position: absolute;
+  left: 100px;
+}
+.footer {
+  display: flex;
+  flex-direction: row-reverse;
+}
+/* axis */
+path {
+  stroke: steelblue;
+  stroke-width: 2;
+  fill: none;
+}
+.line {
+  fill: none;
+  stroke: brown;
+  stroke-width: 5;
+}

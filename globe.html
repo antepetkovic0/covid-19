@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="forGlobe.css" />
+    <title>Covid-19 Globe</title>
+  </head>
+  <body>
+      <h2>COVID-19 REALTIME COUNTRY CASES</h3>
+      <div class="root">
+        <div id="two"></div>
+        <div id="one" >
+          <h3 id="country_name">COUNTRY NAME</h4>
+          <div class="case">
+            <h4>CONFIRMED</h4>
+            <p id="country_confirmed"></p>
+          </div>
+          <div class="case">
+            <h4>DEATHS</h4>
+            <p id="country_deaths"></p>
+          </div>
+          <div class="case" id="case_rec">
+            <h4>RECOVERED</h4>
+            <p id="country_recovered" style="color: green;"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <a href="index.html" title="Back on the home page"><img src="./pictures/home.png" /></a>
+      <a href="chart.html" title="See curves on chart"><img src="./pictures/chart.png" /></a>
+    </div>
+
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://unpkg.com/topojson-client@3"></script>
+    <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+    <script src="forGlobe.js"></script>
+  </body>
+</html>
