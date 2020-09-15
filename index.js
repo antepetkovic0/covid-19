@@ -3,7 +3,7 @@ const rbc = document.getElementById('rb_c');
 const rbd = document.getElementById('rb_d');
 const rbr = document.getElementById('rb_r');
 
-const createMap = (data, world) => {
+const createMap = (data, world, country_case) => {
   let width = document.getElementById('two').offsetWidth;
   let height = document.getElementById('two').offsetHeight;
   let centered;
@@ -96,22 +96,60 @@ const createMap = (data, world) => {
   function colorCountry(d) {
     //country name = d.properties.name
     //filter country object
-    const c = apiData.locations.find(x => x.country === d.properties.name);
-    if (c) {
-      const color =
-        c.latest < 100
-          ? '#ff7f00'
-          : c.latest < 1000
-          ? '#984ea3'
-          : c.latest < 10000
-          ? '#4daf4a'
-          : c.latest < 100000
-          ? '#377eb8'
-          : '#e41a1c';
-      return color;
+    const c = apiData.find(x => x.country === d.properties.name);
+    const c_case = country_case;
+
+    if(c_case === "confirmed"){
+      if (c) {
+        const color =
+          c.cases < 100
+            ? '#ff7f00'
+            : c.cases < 1000
+            ? '#984ea3'
+            : c.cases < 10000
+            ? '#4daf4a'
+            : c.cases < 100000
+            ? '#377eb8'
+            : '#e41a1c';
+        return color;
+      } else {
+        //countries not found in API
+        return '#e6e075';
+      }
+    } else if (c_case === "deaths") {
+      if (c) {
+        const color =
+          c.deaths < 100
+            ? '#ff7f00'
+            : c.deaths < 1000
+            ? '#984ea3'
+            : c.deaths < 10000
+            ? '#4daf4a'
+            : c.deaths < 100000
+            ? '#377eb8'
+            : '#e41a1c';
+        return color;
+      } else {
+        //countries not found in API
+        return '#e6e075';
+      }
     } else {
-      //countries not found in API
-      return '#e6e075';
+      if (c) {
+        const color =
+          c.recovered < 100
+            ? '#ff7f00'
+            : c.recovered < 1000
+            ? '#984ea3'
+            : c.recovered < 10000
+            ? '#4daf4a'
+            : c.recovered < 100000
+            ? '#377eb8'
+            : '#e41a1c';
+        return color;
+      } else {
+        //countries not found in API
+        return '#e6e075';
+      }
     }
   }
 
@@ -176,46 +214,47 @@ const getDate = date => {
 const updateGlobalContainers = data => {
   //confirmed cases
   const confirmed = document.getElementById('global_confirmed');
-  const cUpdate = document.getElementById('confirmed_update');
+  //const cUpdate = document.getElementById('confirmed_update');
   //recovered cases
   const recovered = document.getElementById('global_recovered');
-  const rUpdate = document.getElementById('recovered_update');
+  //const rUpdate = document.getElementById('recovered_update');
   //death cases
   const deaths = document.getElementById('global_deaths');
-  const dUpdate = document.getElementById('deaths_update');
+  //const dUpdate = document.getElementById('deaths_update');
 
   confirmedText = document.createTextNode(
-    Number(data.latest.confirmed).toLocaleString()
+    Number(data[0].cases).toLocaleString()
   );
-  cUpdateText = document.createTextNode(getDate(data.confirmed.last_updated));
+  //cUpdateText = document.createTextNode(getDate(data.confirmed.last_updated));
   confirmed.appendChild(confirmedText);
-  cUpdate.appendChild(cUpdateText);
+  //cUpdate.appendChild(cUpdateText);
 
   recoveredText = document.createTextNode(
-    Number(data.latest.recovered).toLocaleString()
+    Number(data[0].recovered).toLocaleString()
   );
-  rUpdateText = document.createTextNode(getDate(data.recovered.last_updated));
+  //rUpdateText = document.createTextNode(getDate(data.recovered.last_updated));
   recovered.appendChild(recoveredText);
-  rUpdate.appendChild(rUpdateText);
+  //rUpdate.appendChild(rUpdateText);
 
   deathsText = document.createTextNode(
-    Number(data.latest.deaths).toLocaleString()
+    Number(data[0].deaths).toLocaleString()
   );
-  dUpdateText = document.createTextNode(getDate(data.deaths.last_updated));
+  //dUpdateText = document.createTextNode(getDate(data.deaths.last_updated));
   deaths.appendChild(deathsText);
-  dUpdate.appendChild(dUpdateText);
+  //dUpdate.appendChild(dUpdateText);
 };
 
 const getData = async () => {
   const response = await fetch(
-    'https://coronavirus-tracker-api.herokuapp.com/all'
+    'https://coronavirus-19-api.herokuapp.com/countries'
   );
   const res = await response.json();
+  //console.log(res);
 
   updateGlobalContainers(res);
 
   const world = await getWorld();
-  createMap(res.confirmed, world);
+  createMap(res, world, "confirmed");
 
   //cases for creating map
   rbc.addEventListener('click', getConfirmedData);
@@ -223,16 +262,16 @@ const getData = async () => {
   rbr.addEventListener('click', getRecoveredData);
 
   function getConfirmedData() {
-    createMap(res.confirmed, world);
+    createMap(res, world, "confirmed");
   }
 
   function getDeathsData() {
-    createMap(res.deaths, world);
+    createMap(res, world, "deaths");
   }
 
   function getRecoveredData() {
-    createMap(res.recovered, world);
-  }
+    createMap(res, world, "recovered");
+  }  
 };
 
 getData();

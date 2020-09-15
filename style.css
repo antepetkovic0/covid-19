@@ -1,50 +1,138 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
-.root {
+
+.first-page {
+  height: 100vh;
+  background-image: url("https://www.hartmann.info/en-corp/-/media/corporate-news/stage/coronavirus_header_header-(003).jpg?la=en-TT&h=725&w=1440&mw=1440&hash=FA6C93681FAF12A50F462D1C1DB39137");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.title {
+  height: 10%;
+  text-align: center;
+}
+
+.main {
   display: flex;
-  height: 600px;
-  flex-direction: row;
+  flex-direction: column;
+  height: 90%;
+  width: 100%;
 }
-.top {
-  height: 100%;
-}
+
 #one {
-  width: 20%;
-}
-#one > * {
-  margin: 15px;
-  padding: 0px 15px;
-  border: 2px dotted red;
-  border-radius: 20px;
-  padding: 10;
-  width: 250px;
-}
-#case_rec {
-  border: 2px dotted green;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 15px;
 }
 #two {
-  width: 80%;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  justify-content: center;
 }
-p {
-  color: red;
-  font-size: 120%;
+
+/* global case boxes */
+.case-boxes {
+  display: flex;
+  width: 40%;
+  height: 100%;
+  justify-content: center;
+}
+
+.case {
+  border-radius: 10px;
+  width: 150px;
+  height: min-content;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.432);
+}
+
+h3 {
+  margin-bottom: 10px;
+}
+.numbers {
+  font-size: 1.5em;
+}
+
+/* info and links to other pages */
+.links {
+  display: flex;
+}
+.links-pic {
+  display: flex;
+  margin-left: 20px;
+  /* flex-direction: column; */
+}
+.links-info {
+  width: 65%;
+}
+.links-text,
+.radio-text {
+  font-family: "Shadows Into Light", cursive;
+  font-size: 1.5em;
   font-weight: bold;
 }
-#global_recovered {
-  color: green;
+
+/* radio buttons */
+.radio-buttons-container {
+  margin: 0 10px;
 }
-h4,
-h5 {
-  font-family: cursive;
+.radio-buttons {
+  width: max-content;
+  margin: 0 15px;
 }
-h4 {
-  border-bottom: 2px solid black;
+.radio-buttons label,
+.radio-buttons input {
+  display: inline-block;
 }
-.footer {
-  display: flex;
-  flex-direction: row-reverse;
+
+.radio-text {
+  color: white;
+  font-size: 1.2em;
 }
+
+.first {
+  font-size: 1.5em;
+  color: black;
+}
+
+/* img links */
+@keyframes swing {
+  15% {
+    transform: translateX(7px);
+  }
+  30% {
+    transform: translateX(-7px);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+  65% {
+    transform: translateX(-4px);
+  }
+  80% {
+    transform: translateX(2px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+img {
+  width: 55px;
+  height: 55px;
+  animation: swing 2s ease-in-out;
+  animation-iteration-count: 1;
+}
+
+/* map styling */
 .mapOcean {
   fill: rgb(188, 216, 248);
 }

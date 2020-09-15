@@ -5,32 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" type="text/css" href="forGlobe.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap"
+      rel="stylesheet"
+    />
     <title>Covid-19 Globe</title>
   </head>
   <body>
-      <h2>COVID-19 REALTIME COUNTRY CASES</h3>
-      <div class="root">
+    <div class="second-page">
+      <div class="title">
+        <h1>COVID-19 REALTIME COUNTRY CASES</h1>
+      </div>
+      <div class="main">
         <div id="two"></div>
-        <div id="one" >
-          <h3 id="country_name">COUNTRY NAME</h4>
-          <div class="case">
-            <h4>CONFIRMED</h4>
-            <p id="country_confirmed"></p>
+        <div id="one">
+          <div>
+            <h2 id="country_name">COUNTRY NAME</h2>
           </div>
-          <div class="case">
-            <h4>DEATHS</h4>
-            <p id="country_deaths"></p>
+          <div class="tests-info">
+            <p>tests conducted</p>
+            <p id="tests-total"></p>
           </div>
-          <div class="case" id="case_rec">
-            <h4>RECOVERED</h4>
-            <p id="country_recovered" style="color: green;"></p>
+          <div class="countries-info">
+            <!-- container of total cases -->
+            <div class="case-container">
+              <h3>TOTAL CASES</h3>
+              <div class="case">
+                <h4>confirmed</h4>
+                <p id="confirmed-total" style="color: red"></p>
+              </div>
+              <div class="case">
+                <h4>deaths</h4>
+                <p id="deaths-total" style="color: red"></p>
+              </div>
+              <div class="case">
+                <h4>recovered</h4>
+                <p id="recovered-total" style="color: green"></p>
+              </div>
+            </div>
+
+            <!-- container of today cases -->
+            <div class="case-container">
+              <h3>TODAY CASES</h3>
+              <div class="case">
+                <h4>confirmed</h4>
+                <p id="confirmed-today" style="color: red"></p>
+              </div>
+              <div class="case">
+                <h4>deaths</h4>
+                <p id="deaths-today" style="color: red"></p>
+              </div>
+            </div>
+
+            <!-- container of cases per million-->
+            <div class="case-container">
+              <h3>TOTAL PER ONE MILLION</h3>
+              <div class="case">
+                <h4>confirmed</h4>
+                <p id="confirmed-per-million" style="color: red"></p>
+              </div>
+              <div class="case">
+                <h4>deaths</h4>
+                <p id="deaths-per-million" style="color: red"></p>
+              </div>
+              <div class="case">
+                <h4>tests made</h4>
+                <p id="recovered-per-million"></p>
+              </div>
+            </div>
+          </div>
+          <div class="links">
+            <div class="links-info">
+              <p class="links-text white-text">
+                Check for a more detailed presentation of information about
+                country cases using chart or go back to home page
+              </p>
+            </div>
+            <div class="links-pic">
+              <a href="index.html" title="Back on the home page"
+                ><img src="./pictures/home.png"
+              /></a>
+              <a href="chart.html" title="See curves on chart"
+                ><img src="./pictures/chart.png"
+              /></a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="footer">
-      <a href="index.html" title="Back on the home page"><img src="./pictures/home.png" /></a>
-      <a href="chart.html" title="See curves on chart"><img src="./pictures/chart.png" /></a>
     </div>
 
     <script src="https://d3js.org/d3.v5.min.js"></script>
