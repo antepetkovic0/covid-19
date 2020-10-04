@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="forWorldMap.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Karma&display=swap"
+      rel="stylesheet"
+    />
+    <title>Covid-19 world map</title>
+  </head>
+  <body>
+    <div class="app">
+      <div id="map-container">
+        <p class="symptoms" id="symptom1">loss of taste or smell</p>
+        <p class="symptoms" id="symptom2">aches and pains</p>
+        <p class="symptoms" id="symptom3">tiredness</p>
+        <p class="symptoms" id="symptom4">dry cough</p>
+        <p class="symptoms" id="symptom5">fever</p>
+        <div class="radio-buttons-container">
+          <p class="radio-text">Choose case to display:</p>
+          <label class="radio-text">
+            <input
+              type="radio"
+              name="case"
+              value="confirmed"
+              id="rb_c"
+              checked
+            />
+            confirmed
+          </label>
+          <label class="radio-text">
+            <input type="radio" name="case" value="deaths" id="rb_d" />
+            deaths
+          </label>
+          <label class="radio-text">
+            <input type="radio" name="case" value="recovered" id="rb_r" />
+            recovered
+          </label>
+        </div>
+        <div id="world-map"></div>
+        <div class="world-map-title">
+          <p class="map-hint-text">
+            click on country to zoom in/out, legend representing number of cases
+          </p>
+          <p class="map-title">
+            CARTOGRAPHIC REPRESENTATION OF CORONAVIRUS PREVALENCE
+          </p>
+        </div>
+      </div>
+
+      <div id="globe-container">
+        <div id="two"></div>
+        <div id="one">
+          <div>
+            <h2 id="country_name">COUNTRY NAME</h2>
+          </div>
+          <div class="tests-info">
+            <p>tests conducted</p>
+            <p id="tests-total"></p>
+          </div>
+          <div class="countries-info">
+            <!-- container of total cases -->
+            <div class="upper-case-container">
+              <div id="first-upper-case" class="case-container">
+                <h3>TOTAL CASES</h3>
+                <div class="case">
+                  <h4>confirmed</h4>
+                  <p id="confirmed-total" style="color: orange"></p>
+                </div>
+                <div class="case">
+                  <h4>deaths</h4>
+                  <p id="deaths-total" style="color: red"></p>
+                </div>
+                <div class="case">
+                  <h4>recovered</h4>
+                  <p id="recovered-total" style="color: green"></p>
+                </div>
+              </div>
+
+              <!-- container of today cases -->
+              <div id="second-upper-case" class="case-container">
+                <h3>TODAY CASES</h3>
+                <div class="case">
+                  <h4>confirmed</h4>
+                  <p id="confirmed-today" style="color: orange"></p>
+                </div>
+                <div class="case">
+                  <h4>deaths</h4>
+                  <p id="deaths-today" style="color: red"></p>
+                </div>
+              </div>
+            </div>
+            <!-- container of cases per million-->
+            <div id="bottom-case" class="case-container">
+              <h3>TOTAL PER ONE MILLION</h3>
+              <div class="case">
+                <h4>confirmed</h4>
+                <p id="confirmed-per-million" style="color: orange"></p>
+              </div>
+              <div class="case">
+                <h4>deaths</h4>
+                <p id="deaths-per-million" style="color: red"></p>
+              </div>
+              <div class="case">
+                <h4>tests made</h4>
+                <p id="tests-per-million"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="info-container">
+        <div class="switch-button">
+          <p class="symptoms" id="symptom6">
+            difficulty breathing or shortness of breath
+          </p>
+          <p class="symptoms" id="symptom7">chest pain or pressure</p>
+          <p class="toggle-text">switch for different view</p>
+          <div class="toggle-container">
+            <div id="toggle-button">
+              <span id="first">map</span>
+              <span id="second">globe</span>
+              <div class="toggle-inner"></div>
+            </div>
+          </div>
+        </div>
+        <div class="links">
+          <p class="symptoms" id="symptom8">loss of speech or movement</p>
+          <div class="links-info">
+            <p class="links-text">
+              check for more detailed presentation of information about country
+              cases using line chart or go back to home page
+            </p>
+          </div>
+          <div class="links-pic">
+            <a href="lineChart.html" title="Line chart"
+              ><img class="link-img" src="./pictures/chart.png"
+            /></a>
+            <a href="index.html" title="Home page"
+              ><img class="link-img" src="./pictures/home.png"
+            /></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://unpkg.com/topojson-client@3"></script>
+    <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+    <script src="forWorldMap.js"></script>
+  </body>
+</html>

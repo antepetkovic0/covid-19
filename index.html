@@ -3,89 +3,126 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="home.css" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap"
       rel="stylesheet"
     />
-    <title>Covid-19 Map</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Karma&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
   </head>
   <body>
-    <div class="first-page">
-      <div class="title">
-        <h1>COVID-19 REALTIME GLOBAL CASES</h1>
+    <div class="app">
+      <p id="title">
+        C
+        <span
+          ><img id="img-covid" src="pictures/covid.png" width="50" height="50"
+        /></span>
+        V I D - 1 9
+      </p>
+      <div class="covid-info">
+        <div class="text">
+          <p id="prevention"></p>
+        </div>
       </div>
-      <div class="main">
-        <div id="one">
-          <div class="case-boxes">
-            <div class="case">
-              <h3>CONFIRMED</h3>
-              <p class="numbers" id="global_confirmed" style="color: red"></p>
-            </div>
-            <div class="case">
-              <h3>DEATHS</h3>
-              <p class="numbers" id="global_deaths" style="color: red"></p>
-            </div>
-            <div class="case">
-              <h3>RECOVERED</h3>
-              <p class="numbers" id="global_recovered" style="color: green"></p>
-            </div>
+      <div class="upper-div">
+        <!-- global situation numbers -->
+        <div class="case-boxes">
+          <p id="case-boxes-title">GLOBAL SITUATION</p>
+          <div class="case">
+            <p>
+              confirmed cases
+              <span
+                class="numbers"
+                id="global_confirmed"
+                style="color: orange"
+              ></span>
+            </p>
+            <p class="indentation">
+              today
+              <span
+                class="numbers"
+                id="today_confirmed"
+                style="color: orange"
+              ></span>
+            </p>
+            <p class="indentation">
+              active
+              <span
+                class="numbers"
+                id="active_confirmed"
+                style="color: orange"
+              ></span>
+            </p>
           </div>
-          <div class="links">
-            <div class="links-info">
-              <p class="links-text">
-                Check for a more detailed presentation of information about
-                country cases using globe or chart
-              </p>
-            </div>
-            <div class="links-pic">
-              <a href="globe.html" title="Check specific country on globe"
-                ><img src="./pictures/globe.png"
-              /></a>
-              <a href="chart.html" title="See curves on chart"
-                ><img src="./pictures/chart.png"
-              /></a>
+          <div class="case">
+            <p>
+              death cases
+              <span
+                class="numbers"
+                id="global_deaths"
+                style="color: red"
+              ></span>
+            </p>
+            <p class="indentation">
+              today
+              <span class="numbers" id="today_deaths" style="color: red"></span>
+            </p>
+          </div>
+          <div class="case">
+            <p>
+              recovered cases
+              <span
+                class="numbers"
+                id="global_recovered"
+                style="color: green"
+              ></span>
+            </p>
+          </div>
+        </div>
+        <!-- world cases bar chart -->
+        <div class="chart-title">
+          <p>Daily cases</p>
+        </div>
+        <div id="world-chart"></div>
+        <div class="switch-buttons">
+          <div class="toggle-container">
+            <div id="toggle-button">
+              <span id="first">cases</span>
+              <span id="second">deaths</span>
+              <div class="toggle-inner"></div>
             </div>
           </div>
         </div>
-        <div id="two">
-          <div class="radio-buttons-container">
-            <p class="radio-text first">
-              Cartographic representation of coronavirus prevalence
+      </div>
+      <div class="bottom-div">
+        <div class="pie-title">
+          <p>Situation by regions</p>
+        </div>
+        <div id="pie-chart-confirmed"></div>
+        <div id="pie-chart-deaths"></div>
+        <div class="links">
+          <div class="links-info">
+            <p class="links-text">
+              check for more detailed presentation of information about country
+              cases using world map or line chart
             </p>
-            <p class="radio-text">Choose case:</p>
-            <div class="radio-buttons">
-              <label class="radio-text">
-                <input
-                  type="radio"
-                  name="case"
-                  value="confirmed"
-                  id="rb_c"
-                  checked
-                />
-                confirmed
-              </label>
-            </div>
-            <div class="radio-buttons">
-              <label class="radio-text">
-                <input type="radio" name="case" value="deaths" id="rb_d" />
-                deaths
-              </label>
-            </div>
-            <div class="radio-buttons">
-              <label class="radio-text">
-                <input type="radio" name="case" value="recovered" id="rb_r" />
-                recovered
-              </label>
-            </div>
+          </div>
+          <div class="links-pic">
+            <a href="lineChart.html" title="Line chart"
+              ><img class="link-img" src="./pictures/chart.png"
+            /></a>
+            <a href="worldMap.html" title="World map"
+              ><img class="link-img" src="./pictures/globe.jpg"
+            /></a>
           </div>
         </div>
       </div>
     </div>
     <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script src="https://unpkg.com/topojson-client@3"></script>
-    <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
     <script src="index.js"></script>
   </body>
 </html>
